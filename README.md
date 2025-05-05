@@ -1,27 +1,57 @@
-# TravelIndia
+Travel India Web Application
+This is a travel web application focused on showcasing destinations across India, with user authentication powered by Firebase.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+Features
+Authentication System
+Login Page
 
-## Development server
+Email and password input fields
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+"Forgot password" option
 
-## Code scaffolding
+"Create account" option for new users
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Sign Up Page
 
-## Build
+Email, password, and password confirmation fields
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Link to login for existing users
 
-## Running unit tests
+Password Reset
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Email input to receive reset link
 
-## Running end-to-end tests
+Option to return to login page
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Main Page
+Welcome screen with "Travel India" branding
 
-## Further help
+Showcases 100+ destinations across India
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Promotional text about trip planning from Rajahmundry
+
+"LET'S GO" button that reveals the authentication options
+
+Technical Implementation
+Single-page application with dynamic content display
+
+Firebase integration for:
+
+User authentication (login/signup)
+
+Password reset functionality
+
+Responsive design for different screen sizes
+
+How It Works
+Users land on the welcome page with the "LET'S GO" button
+
+Clicking "LET'S GO" reveals authentication options
+
+Users can:
+
+Create a new account (sign up)
+
+Login with existing credentials
+
+Reset their password if needed
