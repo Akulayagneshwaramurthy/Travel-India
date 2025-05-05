@@ -1,0 +1,117 @@
+.support-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .support-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://auspost.com.au/content/dam/auspost_corp/media/images/photo-array-of-photos-india-sights.jpeg.auspostimage.970*0.169.medium.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    border-radius: 8px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+  
+  .faq-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item.open {
+    border-color: #e67e22;
+  }
+  
+  .faq-question {
+    padding: 20px;
+    background: #f9f9f9;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faq-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+  }
+  
+  .toggle-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .faq-answer {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #eee;
+  }
+  
+  .support-cta {
+    text-align: center;
+    padding: 40px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 50px;
+  }
+  
+  .support-cta h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: #e67e22;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #d35400;
+  }
+  
+  @media (max-width: 768px) {
+    .support-hero {
+      height: 250px;
+    }
+    
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+    
+    .faq-question h3 {
+      font-size: 1rem;
+    }
+  }

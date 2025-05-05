@@ -1,0 +1,53 @@
+<section class="hero-slider">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-spinner">
+    <div class="spinner"></div>
+    <p>Loading featured destinations...</p>
+  </div>
+
+  <!-- Slider Content -->
+  <div *ngIf="!isLoading" class="slider-container">
+    <div class="slider" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+      <div class="slide" *ngFor="let destination of destinations; let i = index">
+        <!-- <div class="step-indicator">Step {{i + 1}} of {{destinations.length}}</div> -->
+        <div class="slide-image" [style.backgroundImage]="'url(' + destination.imageUrl + ')'"></div>
+        <div class="slide-content">
+          <span class="category-badge" [ngClass]="destination.category">
+            {{ destination.category | titlecase }}
+          </span>
+          <h1>{{ destination.name }}</h1>
+          <div class="location-rating">
+            <span class="location">📍 {{ destination.location }}</span>
+            <span class="rating">⭐ {{ destination.rating }}/5</span>
+          </div>
+          <p>{{ destination.description }}</p>
+          <div class="price" *ngIf="destination.price">
+            <span class="original-price" *ngIf="destination.discount">
+              ${{ destination.price }}
+            </span>
+            <span class="discounted-price">
+              ${{ destination.discount ? (destination.price * (1 - destination.discount/100)) : destination.price | number:'1.0-0' }}
+            </span>
+          </div>
+          <button class="explore-btn" (click)="exploreDestination(destination.id!)">Explore Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="slider-nav prev" (click)="prevSlide()">❮</button>
+    <button class="slider-nav next" (click)="nextSlide()">❯</button>
+
+    <!-- Dots Indicator -->
+    <div class="slider-dots">
+      <span *ngFor="let dot of destinations; let i = index" 
+            [class.active]="i === currentSlide" 
+            (click)="goToSlide(i)"></span>
+    </div> 
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="!isLoading && destinations.length === 0" class="error-state">
+    <p>No featured destinations found. Please try again later.</p>
+  </div>
+</section>

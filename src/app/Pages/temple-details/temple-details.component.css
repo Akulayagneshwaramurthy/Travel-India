@@ -1,0 +1,234 @@
+.temple-details-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 40px 30px;
+  background-color: #F8F9FA;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(45, 48, 71, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.temple-details-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #4A6FA5, #FF7E5F, #F9CB40);
+  border-radius: 14px 14px 0 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 20px;
+  color: #4A6FA5;
+  font-weight: 500;
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px;
+  font-size: 26px;
+  color: #FF7E5F;
+  font-weight: 600;
+}
+
+.temple-header {
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: #4A6FA5;
+  padding: 30px;
+  border-radius: 12px;
+  color: #F8F9FA;
+  position: relative;
+}
+
+.temple-header h1 {
+  font-size: 36px;
+  color: #F8F9FA;
+  margin-bottom: 25px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+.temple-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #FF7E5F, #F9CB40);
+  border-radius: 2px;
+}
+
+.main-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 4px solid #F9CB40;
+  box-shadow: 0 6px 15px rgba(45, 48, 71, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+.temple-info {
+  margin-top: 40px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(45, 48, 71, 0.1);
+}
+
+.info-section {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(74, 111, 165, 0.1);
+}
+
+.info-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-section h2 {
+  font-size: 28px;
+  color: #2D3047;
+  margin-bottom: 20px;
+  font-weight: 700;
+  position: relative;
+  padding-left: 15px;
+}
+
+.info-section h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  height: 70%;
+  width: 4px;
+  background: linear-gradient(to bottom, #FF7E5F, #4A6FA5);
+  border-radius: 2px;
+}
+
+.info-section h3 {
+  font-size: 20px;
+  color: #4A6FA5;
+  margin-bottom: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-section p {
+  color: #2D3047;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.cost-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.cost-grid div {
+  background-color: rgba(249, 203, 64, 0.15);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(45, 48, 71, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(74, 111, 165, 0.1);
+}
+
+.cost-grid div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(45, 48, 71, 0.1);
+}
+
+.cost-grid div p {
+  color: #2D3047;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.success-text {
+  color: #4BB543;
+  font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .temple-details-container {
+    padding: 30px 20px;
+  }
+  
+  .temple-header h1 {
+    font-size: 32px;
+  }
+  
+  .info-section h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .temple-details-container {
+    padding: 20px;
+    border-radius: 0;
+  }
+  
+  .temple-header {
+    padding: 20px;
+  }
+  
+  .temple-header h1 {
+    font-size: 28px;
+    padding-bottom: 10px;
+  }
+  
+  .main-image {
+    max-height: 300px;
+  }
+  
+  .temple-info {
+    padding: 20px;
+  }
+  
+  .cost-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .temple-header h1 {
+    font-size: 24px;
+  }
+  
+  .info-section h2 {
+    font-size: 20px;
+  }
+  
+  .info-section h3 {
+    font-size: 18px;
+  }
+  
+  .cost-grid {
+    grid-template-columns: 1fr;
+  }
+}

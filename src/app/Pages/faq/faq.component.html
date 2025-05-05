@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="support-container">
+    <section class="support-hero">
+      <div class="hero-content">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about booking, payments, cancellations and more.</p>
+      </div>
+    </section>
+  
+    <div class="support-content">
+      <div class="faq-container">
+        <div *ngFor="let faq of faqs" class="faq-item" [class.open]="faq.isOpen">
+          <div class="faq-question" (click)="toggleFaq(faq)">
+            <h3>{{ faq.question }}</h3>
+            <span class="toggle-icon">{{ faq.isOpen ? '-' : '+' }}</span>
+          </div>
+          <div class="faq-answer" *ngIf="faq.isOpen">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="support-cta">
+        <h2>Still have questions?</h2>
+        <p>Our customer support team is available 24/7 to assist you.</p>
+        <a routerLink="/contact" class="cta-button">Contact Us</a>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

@@ -1,0 +1,42 @@
+<!-- indian-temples.component.html -->
+<div class="temple-container">
+    <!-- Left side - Temple Slider -->
+    <div class="temple-slider">
+      <div class="slider-wrapper" *ngIf="temples$ | async as temples">
+        <div class="slide" *ngFor="let temple of temples; let i = index" [class.active]="i === currentSlideIndex">
+          <div class="temple-image">
+            <img [src]="temple.imageUrl" [alt]="temple.name">
+          </div>
+          <div class="temple-name">
+            <h3>{{ temple.name }}</h3>
+          </div>
+        </div>
+  
+        <!-- Navigation controls -->
+        <!-- <div class="slider-controls">
+          <button class="prev-btn" (click)="prevSlide()">❮</button>
+          <button class="next-btn" (click)="nextSlide()">❯</button>
+        </div> -->
+  
+        <!-- Dots/indicators -->
+        <!-- <div class="dots-container">
+          <span class="dot" *ngFor="let temple of temples; let i = index" 
+                [class.active]="i === currentSlideIndex"
+                (click)="goToSlide(i)"></span>
+        </div> -->
+      </div>
+    </div>
+  
+    <!-- Right side - Information Section -->
+    <div class="temple-info">
+      <div class="info-content">
+        <h1>Indian Temples</h1>
+        <div class="description">
+          <p>India is home to thousands of magnificent temples that showcase rich cultural heritage, architectural brilliance, and spiritual significance. These ancient structures are not just places of worship but also represent the artistic excellence and engineering marvels of ancient India.</p>
+          <p>From the intricate carvings of Khajuraho to the towering gopurams of Madurai, from the sun-worshipping marvel of Konark to the golden splendor of Amritsar - Indian temples represent diverse architectural styles, religious beliefs, and historical periods.</p>
+          <p>Explore these majestic temples to witness India's spiritual journey through centuries of artistic and cultural evolution.</p>
+        </div>
+        <button class="explore-btn">Explore Temples</button>
+      </div>
+    </div>
+  </div>

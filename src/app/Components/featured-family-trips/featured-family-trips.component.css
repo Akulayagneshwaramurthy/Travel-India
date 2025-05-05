@@ -1,0 +1,232 @@
+.trips-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #F8F9FA;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(45, 48, 71, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.trips-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #4A6FA5, #FF7E5F, #4BB543);
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 0 15px;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #2D3047;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(to right, #4BB543, #4A6FA5);
+  border-radius: 2px;
+}
+
+.view-all-btn {
+  background: linear-gradient(to right, #4BB543, #4A6FA5);
+  color: #F8F9FA;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(74, 111, 165, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.view-all-btn:hover {
+  background: linear-gradient(to right, #4A6FA5, #2D3047);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(45, 48, 71, 0.4);
+}
+
+.view-all-btn svg {
+  transition: all 0.4s ease;
+}
+
+.view-all-btn:hover svg {
+  transform: translateX(5px);
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
+}
+
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, 
+    rgba(248, 249, 250, 0) 0%, 
+    #4BB543 20%, 
+    #4A6FA5 50%, 
+    #4BB543 80%, 
+    rgba(248, 249, 250, 0) 100%);
+  margin: 0 15px 30px;
+  border: none;
+  opacity: 0.8;
+}
+
+.trips-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding: 20px 15px;
+  padding-bottom: 30px;
+  scroll-behavior: smooth;
+}
+
+.trip-card {
+  min-width: 240px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(45, 48, 71, 0.1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.trip-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(75, 181, 67, 0.1) 0%, 
+    rgba(75, 181, 67, 0) 30%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trip-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(45, 48, 71, 0.2);
+}
+
+.trip-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 4px solid #4BB543;
+  transition: all 0.5s ease;
+}
+
+.trip-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+.trip-card h3 {
+  margin: 18px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #2D3047;
+  font-weight: 700;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.trips-scroll::-webkit-scrollbar {
+  height: 8px;
+  background-color: rgba(248, 249, 250, 0.8);
+  border-radius: 4px;
+}
+
+.trips-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #4A6FA5, #4BB543);
+  border-radius: 4px;
+  border: 1px solid rgba(248, 249, 250, 0.3);
+}
+
+.trips-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #4A6FA5 #F8F9FA;
+}
+
+/* Featured Trip Badge */
+.featured-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #FF7E5F;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Duration Badge */
+.duration-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background-color: rgba(45, 48, 71, 0.9);
+  color: #F9CB40;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .trips-container {
+    padding: 20px;
+    border-radius: 0;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .view-all-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .trip-card {
+    min-width: 200px;
+  }
+}

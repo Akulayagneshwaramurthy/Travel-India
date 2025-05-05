@@ -1,0 +1,13 @@
+<div class="trips-container">
+    <div class="header-section">
+      <h2 class="section-title">Featured Family Trips</h2>
+      <button class="view-all-btn" (click)="viewAll()">View All</button>
+    </div>
+    <div class="divider"></div>
+    <div class="trips-scroll">
+      <div class="trip-card" *ngFor="let trip of trips" (click)="viewDetails(trip.id!)">
+        <img [src]="trip.imageUrl" alt="{{ trip.name }}">
+        <h3>{{ trip.name }}</h3>
+      </div>
+    </div>
+  </div>

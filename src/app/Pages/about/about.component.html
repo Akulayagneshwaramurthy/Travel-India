@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="about-container">
+    <header class="about-header">
+      <h1>Discover India with Us</h1>
+      <p>Your trusted travel partner for unforgettable Indian experiences</p>
+    </header>
+  
+    <section class="about-mission">
+      <div class="mission-content">
+        <h2>Our Mission</h2>
+        <p>At Travel India, we're dedicated to showcasing the incredible diversity and beauty of India. From the snow-capped Himalayas to the tropical beaches of Goa, from the deserts of Rajasthan to the backwaters of Kerala - we bring you authentic experiences that connect you with India's rich culture, heritage, and natural wonders.</p>
+      </div>
+      <div class="mission-image">
+        <img src="https://globalgrasshopper.com/wp-content/uploads/2011/01/Mumbai-India-scaled.jpg" alt="Indian landscape">
+      </div>
+    </section>
+  
+    <section class="about-story">
+      <h2>Our Story</h2>
+      <p>Founded in 2010 by a group of passionate travelers, Travel India began as a small tour operator in Delhi. Over the years, we've grown into one of India's most respected travel companies, with a network of local experts across all 28 states and 8 union territories.</p>
+      <p>What sets us apart is our deep local knowledge and commitment to sustainable tourism that benefits local communities while preserving India's cultural and natural heritage.</p>
+    </section>
+  
+    <section class="about-team">
+      <h2>Meet Our Team</h2>
+      <div class="team-members">
+        <div class="team-member" *ngFor="let member of teamMembers">
+          <img [src]="'assets/images/' + member.image" [alt]="member.name">
+          <h3>{{member.name}}</h3>
+          <p>{{member.position}}</p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="about-values">
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card" *ngFor="let value of values">
+          <div class="value-icon">
+            <i class="fas {{value.icon}}"></i>
+          </div>
+          <h3>{{value.title}}</h3>
+          <p>{{value.description}}</p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="about-cta">
+      <h2>Ready to Explore India?</h2>
+      <p>Join thousands of travelers who've discovered India's magic with us.</p>
+      <button class="cta-button" routerLink="/tours">Browse Tours</button>
+    </section>
+  </div>
+  <app-footer></app-footer>

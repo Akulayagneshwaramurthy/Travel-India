@@ -1,0 +1,30 @@
+<section class="travel-types-section">
+    <h2 class="section-title">Explore Travel Experiences</h2>
+    <div class="slider-container">
+      <button class="nav-button prev" (click)="prevSlide()">❮</button>
+      
+      <div class="slider" *ngIf="travelTypes.length > 0">
+        <div class="slide" *ngFor="let type of travelTypes; let i = index" 
+             [class.active]="i === currentIndex">
+          <div class="slide-content">
+            <div class="image-container">
+              <img [src]="type.imageUrl" [alt]="type.title" class="travel-image">
+            </div>
+            <div class="info-container">
+              <h3>{{ type.title }}</h3>
+              <p>{{ type.description }}</p>
+              <button class="explore-button"> {{ type.category }} Trips</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="nav-button next" (click)="nextSlide()">❯</button>
+    </div>
+  
+    <div class="slider-dots">
+      <span *ngFor="let type of travelTypes; let i = index" 
+            [class.active]="i === currentIndex" 
+            (click)="goToSlide(i)"></span>
+    </div>
+  </section>

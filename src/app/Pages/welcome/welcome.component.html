@@ -1,0 +1,88 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<body>
+    <div class="welcome-container" *ngIf="currentView === 'welcome'">
+        <div >
+            <h1>Welcome to </h1>
+            <img [src]="url" alt="Travel India Logo" class="logo" style="height: 100px; width: 400px;gap: 10px;">
+          </div>
+        <p class="tagline">Discover 100+ amazing destinations across India</p>
+        <p class="tagline">Plan your perfect trip from Rajahmundry</p>
+        <button class="cta-button" (click)="showLogin()">Let's Go</button>
+      </div>
+      
+      <div class="auth-container" [class.active]="currentView === 'login'" id="login">
+        <div class="auth-header">
+          <h2>Login</h2>
+          <p>Welcome back! Please enter your details</p>
+        </div>
+        <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" formControlName="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" formControlName="password" placeholder="Enter your password">
+          </div>
+          <div class="auth-links">
+            <a href="#" (click)="showForgotPassword($event)">Forgot password?</a>
+            <a href="#" (click)="showSignup($event)">Create account?</a>
+          </div>
+          <button type="submit" class="auth-button">Login</button>
+          <!-- <div class="divider">OR</div>
+          <button type="button" class="social-button" (click)="googleSignIn()">
+            <i class="fab fa-google"></i> Continue with Google
+          </button> -->
+        </form>
+      </div>
+      
+      <div class="auth-container" [class.active]="currentView === 'signup'" id="signup">
+        <div class="auth-header">
+          <h2>Sign Up</h2>
+          <p>Create your account to get started</p>
+        </div>
+        <form class="auth-form" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+          <div class="form-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" formControlName="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" formControlName="password" placeholder="Create a password">
+          </div>
+          <div class="form-group">
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <input type="password" id="signupConfirmPassword" formControlName="confirmPassword" placeholder="Confirm password">
+          </div>
+          <div class="auth-links">
+            <a href="#" (click)="showLogin($event)">Already have an account?</a>
+          </div>
+          <button type="submit" class="auth-button">Sign Up</button>
+          <!-- <div class="divider">OR</div>
+          <button type="button" class="social-button" (click)="googleSignIn()">
+            <i class="fab fa-google"></i> Continue with Google
+          </button> -->
+        </form>
+      </div>
+      
+      <div class="auth-container" [class.active]="currentView === 'forgot'">
+        <div class="auth-header">
+          <h2>Reset Password</h2>
+          <p>Enter your email to receive a password reset link</p>
+        </div>
+        
+        <form class="auth-form" [formGroup]="forgotForm">
+          <div class="form-group">
+            <label for="forgotEmail">Email</label>
+            <input type="email" id="forgotEmail" formControlName="emailOrPhone" placeholder="Enter your email">
+          </div>
+          <button type="button" class="auth-button" (click)="sendResetLink()">
+            <i class="fas fa-paper-plane"></i> Send Reset Link
+          </button>
+          <div class="back-to-login">
+            <a href="#" (click)="showLogin($event)"><i class="fas fa-arrow-left"></i> Back to Login</a>
+          </div>
+        </form>
+      </div>
+</body>

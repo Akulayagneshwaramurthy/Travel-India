@@ -1,0 +1,9 @@
+<div class="all-temples-container">
+  <h1>All Temples</h1>
+  <div class="temples-grid">
+    <div class="temple-card" *ngFor="let temple of temples" (click)="viewDetails(temple.id!)">
+      <img [src]="temple.imageUrl" alt="{{ temple.name }}">
+      <h3>{{ temple.name }}</h3>
+    </div>
+  </div>
+</div>

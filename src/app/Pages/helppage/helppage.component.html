@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="support-container">
+    <section class="support-hero">
+      <div class="hero-content">
+        <h1>Help Center</h1>
+        <p>Find the help you need for your Travel India experience</p>
+      </div>
+    </section>
+  
+    <div class="support-content">
+      <div class="help-topics">
+        <div *ngFor="let topic of topics" class="topic-card">
+          <div class="topic-icon">
+            <i class="fas {{topic.icon}}"></i>
+          </div>
+          <h3>{{topic.title}}</h3>
+          <p>{{topic.description}}</p>
+          <a [routerLink]="topic.link" class="topic-link">Get Help →</a>
+        </div>
+      </div>
+  
+      <div class="support-cta">
+        <h2>Can't find what you need?</h2>
+        <p>Our customer support team is available 24/7 to assist you.</p>
+        <a routerLink="/contact" class="cta-button">Contact Support</a>
+      </div>
+    </div>
+  </div><app-footer></app-footer>

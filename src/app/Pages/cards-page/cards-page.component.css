@@ -1,0 +1,351 @@
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.spinner {
+  border: 5px solid #F8F9FA;  /* --light */
+  border-top: 5px solid #4A6FA5;  /* --primary */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #d32f2f;
+  background-color: #ffebee;
+  border-radius: 4px;
+  margin: 2rem;
+}
+
+.error-message mat-icon {
+  margin-right: 0.5rem;
+}
+
+.place-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2D3047;  /* --dark */
+}
+
+.image-gallery {
+  margin-bottom: 2rem;
+}
+
+.main-image {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #F8F9FA;  /* --light */
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(74, 111, 165, 0.7);  /* --primary with opacity */
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #4A6FA5;  /* --primary */
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.prev {
+  left: 1rem;
+}
+
+.next {
+  right: 1rem;
+}
+
+.plan-trip-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #FF7E5F;  /* --secondary */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.plan-trip-button:hover {
+  background: #F9CB40;  /* --accent */
+}
+
+.thumbnail-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.thumbnail-container img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  border: 1px solid #F8F9FA;  /* --light */
+}
+
+.thumbnail-container img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  border-color: #FF7E5F;  /* --secondary */
+}
+
+.thumbnail-container img.active {
+  opacity: 1;
+  border: 2px solid #F9CB40;  /* --accent */
+}
+
+.details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #F8F9FA;  /* --light */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.detail-cards-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.detail-card {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-top: 3px solid #4A6FA5;  /* --primary */
+}
+
+.detail-card.full-width {
+  flex: 100%;
+}
+
+.detail-card h2 {
+  margin-top: 0;
+  color: #2D3047;  /* --dark */
+  border-bottom: 2px solid #F8F9FA;  /* --light */
+  padding-bottom: 0.5rem;
+}
+
+.cost-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.cost-item {
+  padding: 0.5rem;
+  background-color: rgba(248, 249, 250, 0.5);  /* --light with opacity */
+  border-radius: 4px;
+}
+
+.cost-item h3 {
+  margin-top: 0;
+  color: #4A6FA5;  /* --primary */
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  color: #2D3047;  /* --dark */
+}
+
+/* Highlight important elements with accent color */
+.detail-card h2 {
+  color: #4A6FA5;  /* --primary */
+}
+
+.nav-button:hover {
+  background-color: #FF7E5F;  /* --secondary */
+}
+
+/* Add some accent color highlights */
+.cost-item p:nth-child(odd) {
+  color: #2D3047;  /* --dark */
+  font-weight: 500;
+}
+
+.cost-item p:nth-child(even) {
+  color: #4A6FA5;  /* --primary */
+}
+
+/* Trip Form Styles */
+.trip-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.trip-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.trip-form-container h2 {
+  margin-top: 0;
+  color: #2D3047;  /* --dark */
+}
+
+.trip-form-container h3 {
+  margin: 1rem 0 0.5rem;
+  color: #4A6FA5;  /* --primary */
+}
+
+.trip-form-container mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Confirmation Dialog Styles */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.confirmation-container h2 {
+  margin-top: 0;
+  color: #2D3047;  /* --dark */
+}
+
+.confirmation-container p {
+  margin: 0.5rem 0;
+  color: #2D3047;  /* --dark */
+}
+
+.confirmation-container p strong {
+  color: #4A6FA5;  /* --primary */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .detail-cards-container {
+      flex-direction: column;
+  }
+  
+  .main-image {
+      height: 300px;
+  }
+  
+  .cost-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .detail-card {
+      padding: 1rem;
+  }
+  
+  .trip-form-container {
+    padding: 1rem;
+  }
+  
+  .confirmation-container {
+    padding: 1rem;
+  }
+}
+
+/* Add some interactive elements */
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+/* Style list items with accent color */
+ul li::marker {
+  color: #F9CB40;  /* --accent */
+}

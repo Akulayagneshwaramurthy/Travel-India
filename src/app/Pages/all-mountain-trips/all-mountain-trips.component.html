@@ -1,0 +1,13 @@
+<div class="all-trips-container">
+    <h1>All Mountain Trips</h1>
+    <div class="trips-grid">
+      <div class="trip-card" *ngFor="let trip of trips" (click)="viewDetails(trip.id!)">
+        <img [src]="trip.imageUrl" alt="{{ trip.name }}">
+        <h3>{{ trip.name }}</h3>
+        <div class="trip-meta" *ngIf="trip.elevation || trip.difficulty">
+          <span class="elevation" *ngIf="trip.elevation">↑ {{ trip.elevation }}</span>
+          <span class="difficulty" *ngIf="trip.difficulty">{{ trip.difficulty }}</span>
+        </div>
+      </div>
+    </div>
+  </div>

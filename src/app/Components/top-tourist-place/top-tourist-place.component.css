@@ -1,0 +1,26 @@
+.container {
+    max-width: 1500px;
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F8F9FA;
+  }
+  
+  .main-heading {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .main-heading:hover {
+    color: #e74c3c;
+  }
+  
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+  }

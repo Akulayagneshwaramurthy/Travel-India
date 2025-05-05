@@ -1,0 +1,9 @@
+<div class="all-couples-container">
+    <h1 >All Couples</h1>
+    <div class="couples-grid">
+      <div class="couple-card" *ngFor="let couple of couples" (click)="viewDetails(couple.id!)">
+        <img [src]="couple.imageUrl" alt="{{ couple.name }}">
+        <h3>{{ couple.name }}</h3>
+      </div>
+    </div>
+  </div>

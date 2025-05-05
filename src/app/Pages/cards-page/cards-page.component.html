@@ -1,0 +1,207 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="isLoading" class="loading-message">
+  Loading place details...
+</div>
+
+<div *ngIf="error" class="error-message">
+  {{ error }}
+</div>
+
+<div class="container" *ngIf="place && !isLoading && !error">
+  <h1>{{ place.name }}</h1>
+  
+  <div class="image-gallery">
+    <div class="main-image">
+      <img [src]="images[currentImageIndex] || 'https://via.placeholder.com/300'" [alt]="place.name">
+      <button class="nav-button prev" (click)="prevImage()" [disabled]="images.length <= 1">❮</button>
+      <button class="nav-button next" (click)="nextImage()" [disabled]="images.length <= 1">❯</button>
+      <button class="plan-trip-button" (click)="openTripForm()">Plan to Trip</button>
+    </div>
+    <div class="thumbnail-container">
+      <img *ngFor="let img of images; let i = index" 
+           [src]="img || 'https://via.placeholder.com/100'" 
+           [alt]="'Thumbnail ' + (i + 1)"
+           [class.active]="i === currentImageIndex"
+           (click)="currentImageIndex = i">
+    </div>
+  </div>
+  
+  <div class="details-section">
+    <div class="detail-card">
+      <h2>Traveling Costs</h2>
+      <div class="cost-grid">
+        <div>
+          <h3>Flight</h3>
+          <p>Low: ₹{{ place.flightCost?.low || 'N/A' }}</p>
+          <p>Medium: ₹{{ place.flightCost?.medium || 'N/A' }}</p>
+          <p>High: ₹{{ place.flightCost?.high || 'N/A' }}</p>
+        </div>
+        <div>
+          <h3>Train</h3>
+          <p>Low: ₹{{ place.trainCost?.low || 'N/A' }}</p>
+          <p>Medium: ₹{{ place.trainCost?.medium || 'N/A' }}</p>
+          <p>High: ₹{{ place.trainCost?.high || 'N/A' }}</p>
+        </div>
+        <div>
+          <h3>Bus</h3>
+          <p>Low: ₹{{ place.busCost?.low || 'N/A' }}</p>
+          <p>Medium: ₹{{ place.busCost?.medium || 'N/A' }}</p>
+          <p>High: ₹{{ place.busCost?.high || 'N/A' }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="detail-card">
+      <h2>Local Travel Costs</h2>
+      <div class="cost-grid">
+        <div>
+          <p>Auto: ₹{{ place.localTravelCost?.auto || 'N/A' }}</p>
+          <p>Taxi: ₹{{ place.localTravelCost?.taxi || 'N/A' }}</p>
+          <p>Rental: ₹{{ place.localTravelCost?.rental || 'N/A' }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="detail-card">
+      <h2>Food & Accommodation</h2>
+      <div class="cost-grid">
+        <div>
+          <h3>Food (per day)</h3>
+          <p>Budget: ₹{{ place.foodCost?.low || 'N/A' }}</p>
+          <p>Mid-range: ₹{{ place.foodCost?.medium || 'N/A' }}</p>
+          <p>Luxury: ₹{{ place.foodCost?.high || 'N/A' }}</p>
+        </div>
+        <div>
+          <h3>Hotel (per night)</h3>
+          <p>Budget: ₹{{ place.hotelCost?.low || 'N/A' }}</p>
+          <p>Mid-range: ₹{{ place.hotelCost?.medium || 'N/A' }}</p>
+          <p>Luxury: ₹{{ place.hotelCost?.high || 'N/A' }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="detail-card">
+      <h2>Best Season to Visit</h2>
+      <p>{{ place.bestSeason || 'N/A' }}</p>
+    </div>
+    
+    <div class="detail-card">
+      <h2>History</h2>
+      <p>{{ place.history || 'N/A' }}</p>
+    </div>
+    
+    <div class="detail-card" *ngIf="place.bestPlaces?.length">
+      <h2>Best Places to See</h2>
+      <ul>
+        <li *ngFor="let bestPlace of place.bestPlaces">{{ bestPlace }}</li>
+      </ul>
+    </div>
+    
+    <div class="detail-card" *ngIf="place.mustTry?.length">
+      <h2>Must-Try Experiences</h2>
+      <ul>
+        <li *ngFor="let mustTry of place.mustTry">{{ mustTry }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Trip Planning Form Dialog -->
+<div class="trip-form-overlay" *ngIf="showTripForm">
+  <div class="trip-form-container">
+    <h2>Plan Your Trip to {{ place?.name || 'Destination' }}</h2>
+    <form [formGroup]="tripForm" (ngSubmit)="submitTrip()">
+      <mat-form-field appearance="fill">
+        <mat-label>Trip Type</mat-label>
+        <mat-select formControlName="tripType" (selectionChange)="onTripTypeChange()">
+          <mat-option value="solo">Solo Trip</mat-option>
+          <mat-option value="family">Family Trip</mat-option>
+          <mat-option value="friends">Friends Trip</mat-option>
+          <mat-option value="couple">Couple Trip</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" *ngIf="showMembersInput">
+        <mat-label>Number of Members</mat-label>
+        <input matInput type="number" formControlName="members" min="1" [required]="showMembersInput">
+      </mat-form-field>
+
+      <h3>Transportation</h3>
+      <mat-radio-group formControlName="transportation">
+        <mat-radio-button value="flight">Flight</mat-radio-button>
+        <mat-radio-button value="bus">Bus</mat-radio-button>
+        <mat-radio-button value="train">Train</mat-radio-button>
+      </mat-radio-group>
+
+      <h3>Your Budget</h3>
+      <mat-radio-group formControlName="budget">
+        <mat-radio-button value="low">Low</mat-radio-button>
+        <mat-radio-button value="medium">Medium</mat-radio-button>
+        <mat-radio-button value="high">High</mat-radio-button>
+      </mat-radio-group>
+
+      <h3>Local Transportation</h3>
+      <mat-radio-group formControlName="localTransportation">
+        <mat-radio-button value="auto">Auto</mat-radio-button>
+        <mat-radio-button value="taxi">Taxi</mat-radio-button>
+        <mat-radio-button value="rental">Rental</mat-radio-button>
+      </mat-radio-group>
+
+      <h3>Food (per day)</h3>
+      <mat-radio-group formControlName="foodCost">
+        <mat-radio-button value="low">Budget</mat-radio-button>
+        <mat-radio-button value="medium">Mid-range</mat-radio-button>
+        <mat-radio-button value="high">Luxury</mat-radio-button>
+      </mat-radio-group>
+
+      <h3>Hotel (per night)</h3>
+      <mat-radio-group formControlName="hotelCost">
+        <mat-radio-button value="low">Budget</mat-radio-button>
+        <mat-radio-button value="medium">Mid-range</mat-radio-button>
+        <mat-radio-button value="high">Luxury</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Days</mat-label>
+        <input matInput type="number" formControlName="days" min="1" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nights</mat-label>
+        <input matInput type="number" formControlName="nights" min="1" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Travel Date</mat-label>
+        <input matInput type="date" formControlName="travelDate" required>
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-button type="button" (click)="closeTripForm()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="tripForm.invalid">Confirm Trip</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Confirmation Dialog -->
+<div class="confirmation-overlay" *ngIf="showConfirmation && confirmedTrip">
+  <div class="confirmation-container">
+    <h2>Trip Confirmed!</h2>
+    <p><strong>Destination:</strong> {{ confirmedTrip.placeName }}</p>
+    <p><strong>Trip Type:</strong> {{ confirmedTrip.tripType }}</p>
+    <p *ngIf="confirmedTrip.members"><strong>Members:</strong> {{ confirmedTrip.members }}</p>
+    <p><strong>Transportation:</strong> {{ confirmedTrip.transportation }}</p>
+    <p><strong>Budget:</strong> {{ confirmedTrip.budget }}</p>
+    <p><strong>Local Transportation:</strong> {{ confirmedTrip.localTransportation }}</p>
+    <p><strong>Food Cost:</strong> {{ confirmedTrip.foodCost }}</p>
+    <p><strong>Hotel Cost:</strong> {{ confirmedTrip.hotelCost }}</p>
+    <p><strong>Days:</strong> {{ confirmedTrip.days }}</p>
+    <p><strong>Nights:</strong> {{ confirmedTrip.nights }}</p>
+    <p><strong>Travel Date:</strong> {{ confirmedTrip.travelDate }}</p>
+    <p><strong>Guide:</strong> {{ confirmedTrip.guideName }}</p>
+    <p><strong>Contact:</strong> {{ confirmedTrip.guideContact }}</p>
+    <button mat-raised-button color="primary" (click)="closeConfirmation()">Close</button>
+  </div>
+</div>

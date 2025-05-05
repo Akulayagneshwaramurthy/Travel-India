@@ -1,0 +1,296 @@
+.travel-types-section {
+  padding: 4rem 2rem;
+  width: 1430px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slider-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #2c3e50;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide-content {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.image-container {
+  flex: 1;
+}
+
+.travel-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.info-container {
+  flex: 1;
+  padding: 2rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-container h3 {
+  font-size: 2rem;
+  color: #e67e22;
+  margin-bottom: 1rem;
+}
+
+.info-container p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.explore-button {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-self: flex-start;
+  transition: background-color 0.3s;
+}
+
+.explore-button:hover {
+  background-color: #d35400;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.slider-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.slider-dots span.active {
+  background-color: #e67e22;
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .travel-types-section {
+      width: 100%;
+      max-width: 100%;
+      padding: clamp(3rem, 5vw, 3.5rem) clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .slider-container {
+      max-width: 90%;
+  }
+
+  .section-title {
+      font-size: clamp(2rem, 4vw, 2.3rem);
+      margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .travel-image {
+      height: 350px;
+  }
+
+  .info-container {
+      padding: clamp(1.5rem, 3vw, 1.8rem);
+  }
+
+  .info-container h3 {
+      font-size: clamp(1.8rem, 3.5vw, 1.9rem);
+  }
+
+  .info-container p {
+      font-size: clamp(1rem, 2.5vw, 1.05rem);
+  }
+
+  .explore-button {
+      padding: clamp(10px, 2vw, 11px) clamp(20px, 4vw, 22px);
+      font-size: clamp(0.9rem, 2vw, 0.95rem);
+  }
+
+  .nav-button {
+      font-size: clamp(1.8rem, 3vw, 1.9rem);
+      padding: clamp(0.8rem, 2vw, 0.9rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-content {
+      flex-direction: column;
+  }
+
+  .travel-image {
+      height: 300px;
+  }
+
+  .info-container {
+      padding: 1.5rem;
+  }
+
+  .info-container h3 {
+      font-size: 1.5rem;
+  }
+
+  .info-container p {
+      font-size: clamp(0.95rem, 2.5vw, 1rem);
+      margin-bottom: 1.5rem;
+  }
+
+  .explore-button {
+      align-self: center;
+      padding: clamp(9px, 2vw, 10px) clamp(18px, 4vw, 20px);
+  }
+
+  .slider-dots {
+      margin-top: 1.5rem;
+  }
+
+  .slider-dots span {
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+  }
+}
+
+@media (max-width: 576px) {
+  .travel-types-section {
+      padding: clamp(2rem, 4vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .section-title {
+      font-size: clamp(1.8rem, 4vw, 2rem);
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .slider-container {
+      max-width: 95%;
+  }
+
+  .travel-image {
+      height: 250px;
+  }
+
+  .info-container {
+      padding: clamp(1rem, 2.5vw, 1.3rem);
+  }
+
+  .info-container h3 {
+      font-size: clamp(1.3rem, 3vw, 1.4rem);
+  }
+
+  .info-container p {
+      font-size: clamp(0.9rem, 2vw, 0.95rem);
+      line-height: 1.5;
+  }
+
+  .explore-button {
+      padding: clamp(8px, 2vw, 9px) clamp(15px, 3vw, 18px);
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
+  }
+
+  .nav-button {
+      font-size: clamp(1.5rem, 3vw, 1.7rem);
+      padding: clamp(0.5rem, 1.5vw, 0.7rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .travel-types-section {
+      padding: clamp(1.5rem, 4vw, 2rem) clamp(0.8rem, 2vw, 1rem);
+  }
+
+  .section-title {
+      font-size: clamp(1.5rem, 4vw, 1.8rem);
+      margin-bottom: clamp(1.2rem, 3vw, 1.5rem);
+  }
+
+  .travel-image {
+      height: 200px;
+  }
+
+  .info-container {
+      padding: clamp(0.8rem, 2vw, 1rem);
+  }
+
+  .info-container h3 {
+      font-size: clamp(1.2rem, 3vw, 1.3rem);
+  }
+
+  .info-container p {
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
+      margin-bottom: 1rem;
+  }
+
+  .explore-button {
+      padding: clamp(7px, 2vw, 8px) clamp(12px, 3vw, 15px);
+      font-size: clamp(0.8rem, 2vw, 0.85rem);
+  }
+
+  .slider-dots {
+      margin-top: 1rem;
+  }
+
+  .slider-dots span {
+      width: 8px;
+      height: 8px;
+      margin: 0 3px;
+  }
+
+  .nav-button {
+      font-size: clamp(1.3rem, 3vw, 1.5rem);
+      padding: clamp(0.4rem, 1.5vw, 0.5rem);
+  }
+}

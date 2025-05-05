@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<div class="contact-container">
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1>Contact Travel India</h1>
+        <p>We'd love to hear from you! Reach out for bookings, inquiries, or travel advice.</p>
+      </div>
+    </section>
+  
+    <div class="contact-main">
+      <section class="contact-form-section">
+        <h2>Send Us a Message</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name*</label>
+            <input type="text" id="name" formControlName="name" placeholder="Your name">
+            <div *ngIf="submitted && f['name'].errors" class="error-message">
+              <span *ngIf="f['name'].errors['required']">Name is required</span>
+              <span *ngIf="f['name'].errors['minlength']">Minimum 3 characters required</span>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" formControlName="email" placeholder="Your email">
+            <div *ngIf="submitted && f['email'].errors" class="error-message">
+              <span *ngIf="f['email'].errors['required']">Email is required</span>
+              <span *ngIf="f['email'].errors['email']">Please enter a valid email</span>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" formControlName="phone" placeholder="Your phone number">
+            <div *ngIf="submitted && f['phone'].errors" class="error-message">
+              <span *ngIf="f['phone'].errors['pattern']">Please enter a valid 10-digit number</span>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="subject">Subject*</label>
+            <select id="subject" formControlName="subject">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="booking">Tour Booking</option>
+              <option value="custom">Custom Tour Request</option>
+              <option value="feedback">Feedback</option>
+              <option value="general">General Inquiry</option>
+            </select>
+            <div *ngIf="submitted && f['subject'].errors" class="error-message">
+              <span *ngIf="f['subject'].errors['required']">Subject is required</span>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="message">Message*</label>
+            <textarea id="message" formControlName="message" rows="5" placeholder="Your message"></textarea>
+            <div *ngIf="submitted && f['message'].errors" class="error-message">
+              <span *ngIf="f['message'].errors['required']">Message is required</span>
+              <span *ngIf="f['message'].errors['minlength']">Minimum 20 characters required</span>
+            </div>
+          </div>
+  
+          <button type="submit" class="submit-btn" [disabled]="isLoading">
+            <span *ngIf="!isLoading">Send Message</span>
+            <span *ngIf="isLoading">Sending...</span>
+          </button>
+        </form>
+      </section>
+  
+      <section class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Our Office</h3>
+          <p>123 Travel Street, Connaught Place<br>New Delhi, India 110001</p>
+        </div>
+  
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>Call Us</h3>
+          <p>+91 11 2345 6789<br>+91 98765 43210</p>
+        </div>
+  
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email Us</h3>
+          <p>inforavelindia.com<br>bookings.com</p>
+        </div>
+  
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Working Hours</h3>
+          <p>Monday - Friday: 9am - 7pm<br>Saturday: 10am - 5pm<br>Sunday: Closed</p>
+        </div>
+      </section>
+    </div>
+  
+    <section class="map-section">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.715403098843!2d77.2063723150833!3d28.63290098241764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f1!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+      </iframe>
+    </section>
+  </div><app-footer></app-footer>

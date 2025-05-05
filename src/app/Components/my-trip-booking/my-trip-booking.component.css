@@ -1,0 +1,40 @@
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #2D3047;  /* --dark */
+    margin-bottom: 2rem;
+  }
+  
+  .trip-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-top: 3px solid #4A6FA5;  /* --primary */
+    margin-bottom: 1.5rem;
+  }
+  
+  .trip-card h2 {
+    margin-top: 0;
+    color: #4A6FA5;  /* --primary */
+  }
+  
+  .trip-card p {
+    margin: 0.5rem 0;
+    color: #2D3047;  /* --dark */
+  }
+  
+  .trip-card p strong {
+    color: #4A6FA5;  /* --primary */
+  }
+  
+  @media (max-width: 768px) {
+    .trip-card {
+      padding: 1rem;
+    }
+  }

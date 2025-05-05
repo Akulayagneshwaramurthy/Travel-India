@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>My Booked Trips</h1>
+    <div *ngIf="!bookedTrips$">
+      <p>Loading trips...</p>
+    </div>
+    <div *ngIf="bookedTrips$ | async as trips; else noTrips">
+      <div class="trip-card" *ngFor="let trip of trips">
+        <h2>{{ trip.placeName }}</h2>
+        <p><strong>Trip Type:</strong> {{ trip.tripType }}</p>
+        <p *ngIf="trip.members"><strong>Members:</strong> {{ trip.members }}</p>
+        <p><strong>Transportation:</strong> {{ trip.transportation }}</p>
+        <p><strong>Budget:</strong> {{ trip.budget }}</p>
+        <p><strong>Local Transportation:</strong> {{ trip.localTransportation }}</p>
+        <p><strong>Food Cost:</strong> {{ trip.foodCost }}</p>
+        <p><strong>Hotel Cost:</strong> {{ trip.hotelCost }}</p>
+        <p><strong>Days:</strong> {{ trip.days }}</p>
+        <p><strong>Nights:</strong> {{ trip.nights }}</p>
+        <p><strong>Travel Date:</strong> {{ trip.travelDate }}</p>
+        <p><strong>Guide:</strong> {{ trip.guideName }}</p>
+        <p><strong>Contact:</strong> {{ trip.guideContact }}</p>
+      </div>
+    </div>
+    <ng-template #noTrips>
+      <p>No trips booked yet.</p>
+    </ng-template>
+  </div>

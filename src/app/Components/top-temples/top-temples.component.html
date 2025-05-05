@@ -1,0 +1,13 @@
+<div class="temples-container">
+  <div class="header-section">
+    <h2 class="section-title">All Temples</h2>
+    <button class="view-all-btn" (click)="viewAll()">View All</button>
+  </div>
+  <div class="divider"></div>
+  <div class="temples-scroll">
+    <div class="temple-card" *ngFor="let temple of temples" (click)="viewDetails(temple.id!)">
+      <img [src]="temple.imageUrl" alt="{{ temple.name }}">
+      <h3>{{ temple.name }}</h3>
+    </div>
+  </div>
+</div>

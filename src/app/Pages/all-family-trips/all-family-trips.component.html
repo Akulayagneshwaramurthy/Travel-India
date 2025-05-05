@@ -1,0 +1,9 @@
+<div class="all-trips-container">
+    <h1>All Family Trips</h1>
+    <div class="trips-grid">
+      <div class="trip-card" *ngFor="let trip of trips" (click)="viewDetails(trip.id!)">
+        <img [src]="trip.imageUrl" alt="{{ trip.name }}">
+        <h3>{{ trip.name }}</h3>
+      </div>
+    </div>
+  </div>

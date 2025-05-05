@@ -1,0 +1,40 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <!-- Left side - Logo -->
+      <div class="navbar-brand">
+        <a href="#">
+          <img [src]="url" alt="Travel India Logo" class="logo" style="height: 50px; width: 200px;">
+        </a>
+      </div>
+  
+      <!-- Middle - Navigation Links -->
+      <div class="navbar-links">
+        <a routerLink="/home" class="nav-link">Home</a>
+        <a routerLink="/explore" class="nav-link">Explore</a>
+        <a routerLink="/contact" class="nav-link">Contact</a>
+        <a routerLink="/about" class="nav-link">About Us</a>
+      </div>
+  
+      <!-- Right side - Auth Buttons -->
+      <div class="navbar-auth">
+        <button class="btn btn-login" (click)="navigateToAuth('login')">Logout</button>
+      <button class="btn btn-signup" (click)="navigateToAuth('signup')">Sign Up</button>
+      </div>
+  
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-button" (click)="toggleMenu()">
+        <span class="menu-icon">☰</span>
+      </button>
+    </div>
+  
+    <!-- Mobile menu -->
+    <div class="mobile-menu" [class.active]="isMenuOpen">
+      <a routerLink="/home" class="nav-link" (click)="toggleMenu()">Home</a>
+      <a routerLink="/explore" class="nav-link" (click)="toggleMenu()">Explore</a>
+      <a routerLink="/favorites" class="nav-link" (click)="toggleMenu()">Favorites</a>
+      <a routerLink="/explored" class="nav-link" (click)="toggleMenu()">Explored</a>
+      <a routerLink="/about" class="nav-link" (click)="toggleMenu()">About Us</a>
+      <button class="btn btn-login" (click)="navigateToAuth('login')">Logout</button>
+      <button class="btn btn-signup" (click)="navigateToAuth('signup')">Sign Up</button>
+    </div>
+  </nav>

@@ -1,0 +1,390 @@
+/* indian-temples.component.css */
+.temple-container {
+  display: flex;
+  height: 100vh;
+  width: 1500px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.temple-slider {
+  flex: 1;
+  background-color: #F8F9FA;
+  position: relative;
+  overflow: hidden;
+  padding-top: 170px;
+  padding-left: 30px;
+}
+
+.slider-wrapper {
+  height: 100%;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: none;
+  flex-direction: column;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+  display: block;
+}
+
+.temple-image {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.temple-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.temple-image img:hover {
+  transform: scale(1.05);
+}
+
+.temple-name {
+  background-color: #e67e22;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+
+.temple-name h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.slider-controls {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  transform: translateY(-50%);
+}
+
+.prev-btn, .next-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #2c3e50;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  color: #e67e22;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #e67e22;
+}
+
+.temple-info {
+  flex: 1;
+  background: #F8F9FA;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.info-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.temple-info h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.description p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.explore-btn {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-block;
+  margin: 0 auto;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.explore-btn:hover {
+  background-color: #d35400;
+}
+
+/* Enhanced Responsive Adjustments */
+@media (max-width: 1200px) {
+  .temple-container {
+      width: 100%;
+      max-width: 100%;
+  }
+
+  .slider-wrapper {
+      max-width: 90%;
+  }
+
+  .temple-info {
+      padding: clamp(3rem, 5vw, 3.5rem) clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .info-content {
+      max-width: 90%;
+  }
+
+  .temple-info h1 {
+      font-size: clamp(2.2rem, 4vw, 2.4rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .temple-slider {
+      padding-top: clamp(120px, 15vw, 140px);
+      padding-left: clamp(20px, 3vw, 25px);
+  }
+
+  .temple-name h3 {
+      font-size: clamp(1.4rem, 2.5vw, 1.5rem);
+  }
+
+  .description p {
+      font-size: clamp(1rem, 2vw, 1.05rem);
+  }
+
+  .explore-btn {
+      padding: clamp(10px, 2vw, 11px) clamp(20px, 4vw, 22px);
+      font-size: clamp(0.9rem, 2vw, 0.95rem);
+  }
+
+  .prev-btn, .next-btn {
+      font-size: clamp(1.8rem, 3vw, 1.9rem);
+      padding: clamp(0.8rem, 2vw, 0.9rem);
+  }
+
+  .dots-container {
+      bottom: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .temple-container {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .temple-slider, .temple-info {
+      flex: none;
+  }
+
+  .temple-slider {
+      padding: 1.5rem;
+      height: 50vh;
+  }
+
+  .temple-info {
+      padding: 2rem 1.5rem;
+  }
+
+  .temple-info h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+  }
+
+  .temple-name h3 {
+      font-size: 1.3rem;
+  }
+
+  .description p {
+      font-size: 1rem;
+  }
+
+  .temple-image {
+      border-radius: 8px 8px 0 0;
+  }
+
+  .temple-name {
+      padding: clamp(15px, 3vw, 18px);
+      border-radius: 0 0 8px 8px;
+  }
+
+  .prev-btn, .next-btn {
+      font-size: clamp(1.5rem, 3vw, 1.7rem);
+      padding: clamp(0.5rem, 2vw, 0.7rem);
+  }
+
+  .dots-container {
+      bottom: 8%;
+  }
+
+  .dot {
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+  }
+}
+
+@media (max-width: 576px) {
+  .temple-slider {
+      padding: clamp(1rem, 2.5vw, 1.3rem);
+      height: 45vh;
+  }
+
+  .temple-info {
+      padding: clamp(1.5rem, 3vw, 2rem) clamp(1rem, 2vw, 1.3rem);
+  }
+
+  .temple-info h1 {
+      font-size: clamp(1.8rem, 3.5vw, 1.9rem);
+      margin-bottom: clamp(1.5rem, 3vw, 1.8rem);
+  }
+
+  .temple-name h3 {
+      font-size: clamp(1.2rem, 2.5vw, 1.3rem);
+  }
+
+  .description p {
+      font-size: clamp(0.95rem, 2vw, 1rem);
+      margin-bottom: clamp(10px, 2vw, 12px);
+  }
+
+  .explore-btn {
+      padding: clamp(9px, 2vw, 10px) clamp(18px, 3vw, 20px);
+      font-size: clamp(0.85rem, 2vw, 0.9rem);
+  }
+
+  .slider-controls {
+      padding: 0 clamp(10px, 2vw, 15px);
+  }
+
+  .prev-btn, .next-btn {
+      font-size: clamp(1.3rem, 3vw, 1.5rem);
+  }
+
+  .dots-container {
+      bottom: 5%;
+      margin-top: 1.5rem;
+  }
+
+  .dot {
+      width: 8px;
+      height: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .temple-slider {
+      padding: clamp(0.8rem, 2vw, 1rem);
+      height: 40vh;
+  }
+
+  .temple-info {
+      padding: clamp(1rem, 2.5vw, 1.5rem) clamp(0.8rem, 2vw, 1rem);
+  }
+
+  .temple-info h1 {
+      font-size: clamp(1.5rem, 3.5vw, 1.7rem);
+      margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .temple-name {
+      padding: clamp(12px, 2.5vw, 15px);
+  }
+
+  .temple-name h3 {
+      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+  }
+
+  .description {
+      margin-bottom: clamp(20px, 5vw, 30px);
+  }
+
+  .description p {
+      font-size: clamp(0.9rem, 2vw, 0.95rem);
+      margin-bottom: clamp(8px, 2vw, 10px);
+  }
+
+  .explore-btn {
+      padding: clamp(8px, 2vw, 9px) clamp(15px, 3vw, 18px);
+      font-size: clamp(0.8rem, 2vw, 0.85rem);
+  }
+
+  .prev-btn, .next-btn {
+      font-size: clamp(1.2rem, 3vw, 1.3rem);
+      padding: clamp(0.3rem, 1.5vw, 0.5rem);
+  }
+
+  .dots-container {
+      bottom: 3%;
+      margin-top: 1rem;
+  }
+
+  .dot {
+      width: 7px;
+      height: 7px;
+      margin: 0 3px;
+  }
+}

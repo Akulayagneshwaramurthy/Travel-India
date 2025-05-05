@@ -1,0 +1,8 @@
+<div class="card" (click)="navigateToTempleDetails()">
+    <div class="card-image">
+      <img [src]="temple.imageUrl || 'https://via.placeholder.com/300'" [alt]="temple.name">
+    </div>
+    <div class="card-content">
+      <h3>{{ temple.name }}</h3>
+    </div>
+  </div>

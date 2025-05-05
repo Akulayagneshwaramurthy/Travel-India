@@ -1,0 +1,76 @@
+<div class="couple-details-container">
+    <div *ngIf="loading" class="loading">Loading...</div>
+    
+    <div *ngIf="!loading && couple" class="couple-content">
+      <div class="couple-header">
+        <h1>{{ couple.name }}</h1>
+        <img [src]="couple.imageUrl" alt="{{ couple.name }}" class="main-image">
+      </div>
+      
+      <div class="couple-info">
+        <div class="info-section">
+          <h2>Travel Costs</h2>
+          <div class="cost-grid">
+            <div>
+              <h3>Flight</h3>
+              <p>{{ getCostRange(couple.flightCost) }}</p>
+            </div>
+            <div>
+              <h3>Train</h3>
+              <p>{{ getCostRange(couple.trainCost) }}</p>
+            </div>
+            <div>
+              <h3>Bus</h3>
+              <p>{{ getCostRange(couple.busCost) }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-section" *ngIf="couple.localTravelCost">
+          <h2>Local Travel Costs</h2>
+          <div class="cost-grid">
+            <div>
+              <h3>Auto</h3>
+              <p>₹{{ couple.localTravelCost.auto }}</p>
+            </div>
+            <div>
+              <h3>Taxi</h3>
+              <p>₹{{ couple.localTravelCost.taxi }}</p>
+            </div>
+            <div>
+              <h3>Rental</h3>
+              <p>₹{{ couple.localTravelCost.rental }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <h2>Stay & Food</h2>
+          <div class="cost-grid">
+            <div>
+              <h3>Food Cost</h3>
+              <p>{{ getCostRange(couple.foodCost) }}</p>
+            </div>
+            <div>
+              <h3>Hotel Cost</h3>
+              <p>{{ getCostRange(couple.hotelCost) }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-section" *ngIf="couple.bestSeason">
+          <h2>Best Season to Visit</h2>
+          <p>{{ couple.bestSeason }}</p>
+        </div>
+        
+        <div class="info-section" *ngIf="couple.history">
+          <h2>History</h2>
+          <p>{{ couple.history }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="!loading && !couple" class="not-found">
+      <h2>Couple not found</h2>
+    </div>
+  </div>

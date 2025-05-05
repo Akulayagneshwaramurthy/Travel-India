@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1>All Top Tourist Places in India</h1>
+    
+    <div class="places-grid">
+      <div class="row" *ngFor="let row of getRows()">
+        <div class="col" *ngFor="let place of getPlacesInRow(row)">
+          <app-card [place]="place"></app-card>
+        </div>
+      </div>
+    </div>
+  </div>

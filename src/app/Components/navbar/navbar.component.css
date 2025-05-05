@@ -1,0 +1,257 @@
+:root {
+  --primary: #4A6FA5;  /* Deep blue */
+  --secondary: #FF7E5F;  /* Coral */
+  --accent: #F9CB40;  /* Golden yellow */
+  --dark: #2D3047;  /* Navy */
+  --light: #F8F9FA;  /* Off-white */
+  --success: #4BB543;  /* Green */
+}
+
+.navbar {
+  background-color: #F8F9FA;  /* --light */
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 30px;
+}
+
+.navbar-brand .logo {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand .logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar-links {
+  margin: 0 70px;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-link {
+  color: #2D3047;  /* --dark */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #4A6FA5;  /* --primary */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #FF7E5F;  /* --secondary */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-auth {
+  margin-left: 70px;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-login {
+  background-color: transparent;
+  color: #4A6FA5;  /* --primary */
+  border: 1px solid #4A6FA5;  /* --primary */
+}
+
+.btn-login:hover {
+  background-color: #4A6FA5;  /* --primary */
+  color: white;
+}
+
+.btn-signup {
+  background-color: #FF7E5F;  /* --secondary */
+  color: white;
+}
+
+.btn-signup:hover {
+  background-color: #e06b4c;
+  transform: translateY(-2px);
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #2D3047;  /* --dark */
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #F8F9FA;  /* --light */
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+/* Enhanced Responsive Styles */
+@media (max-width: 1200px) {
+  .navbar-container {
+      margin: 0 20px;
+  }
+
+  .navbar-links {
+      gap: 2rem;
+      margin: 0 50px;
+  }
+
+  .navbar-auth {
+      margin-left: 50px;
+  }
+
+  .nav-link {
+      font-size: clamp(1.1rem, 2vw, 1.2rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-links, .navbar-auth {
+      display: none;
+  }
+
+  .mobile-menu-button {
+      display: block;
+  }
+
+  .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #F8F9FA;
+      padding: 1.5rem;
+      z-index: 999;
+  }
+
+  .mobile-menu.active {
+      display: flex;
+  }
+
+  .mobile-menu .nav-link {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      padding: 0.5rem 0;
+  }
+
+  .mobile-menu .btn {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+      padding: clamp(10px, 3vw, 12px);
+  }
+
+  .navbar-container {
+      margin: 0 15px;
+  }
+
+  .navbar-brand .logo {
+      height: clamp(30px, 8vw, 35px);
+  }
+
+  .mobile-menu-button {
+      font-size: clamp(1.2rem, 4vw, 1.4rem);
+  }
+
+  .mobile-menu {
+      padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+      padding: clamp(8px, 2.5vw, 10px);
+  }
+
+  .navbar-container {
+      margin: 0 10px;
+  }
+
+  .navbar-brand .logo {
+      height: clamp(25px, 7vw, 30px);
+  }
+
+  .mobile-menu {
+      padding: 0.75rem;
+  }
+
+  .mobile-menu .nav-link {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+
+  .mobile-menu .btn {
+      padding: 0.6rem;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar {
+      padding: clamp(6px, 2vw, 8px);
+  }
+
+  .navbar-brand .logo {
+      height: clamp(20px, 6vw, 25px);
+  }
+
+  .mobile-menu-button {
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+  }
+
+  .mobile-menu {
+      padding: 0.5rem;
+  }
+}

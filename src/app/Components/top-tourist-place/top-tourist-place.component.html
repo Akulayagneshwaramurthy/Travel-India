@@ -1,0 +1,7 @@
+<div class="container">
+    <h1 class="main-heading" (click)="navigateToPlacesPage()">Top Tourist Places of India</h1>
+    
+    <div class="cards-container">
+      <app-card *ngFor="let place of topPlaces" [place]="place"></app-card>
+    </div>
+  </div>

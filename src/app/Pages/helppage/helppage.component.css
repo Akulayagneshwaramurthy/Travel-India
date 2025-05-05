@@ -1,0 +1,140 @@
+.support-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .support-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://auspost.com.au/content/dam/auspost_corp/media/images/photo-array-of-photos-india-sights.jpeg.auspostimage.970*0.169.medium.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 50px;
+    border-radius: 8px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .support-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .help-topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .topic-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .topic-card:hover {
+    border-color: #e67e22;
+  }
+  
+  .topic-icon i {
+    font-size: 2rem;
+    color: #e67e22;
+    padding: 20px;
+    display: block;
+  }
+  
+  .topic-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    padding: 0 20px;
+    background: #f9f9f9;
+  }
+  
+  .topic-card p {
+    padding: 20px;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+    color: #2c3e50;
+  }
+  
+  .topic-link {
+    display: inline-block;
+    color: #e67e22;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  .topic-link:hover {
+    color: #d35400;
+  }
+  
+  .support-cta {
+    text-align: center;
+    padding: 40px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 50px;
+  }
+  
+  .support-cta h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.8rem;
+  }
+  
+  .support-cta p {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: #e67e22;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #d35400;
+  }
+  
+  @media (max-width: 768px) {
+    .support-hero {
+      height: 250px;
+    }
+  
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  
+    .topic-card h3 {
+      font-size: 1rem;
+    }
+  }
